@@ -1,36 +1,36 @@
-/*
+
 const exchangeRates = {
-    ARG: { //esta mal
-        EUR: 951.84,
+    ARG: { 
+        EUR: 0.0010,
         USD: 0.0011,
-        YUAN: 122.10,
-        REAL: 171.92,
+        YUAN: 0.0082,
+        REAL: 0.0058,
     },
     USD: {
-        EUR: 0.93,
+        EUR: 954.25,
         ARG: 882.70,
-        YUAN: 7.23,
-        REAL: 5.15,  
+        YUAN: 7.81,
+        REAL: 5.56,  
     },
-    EUR: { //mal
+    EUR: { 
         USD: 1.18,
         REAL: 0.18,
         ARG: 0.0011,
         YUAN: 0.13,
     },
-    YUAN: { //mal
-        USD:7.23, 
-        EUR: 7.79,
-        REAL: 1.41,
-        ARG: 0.0082,
+    YUAN: { 
+        USD:0.14, 
+        EUR: 0.13,
+        REAL: 0.71,
+        ARG: 122.14,
     },
     REAL: { //mal 
-        USD: 5.16,
-        ARG: 0.0058,
-        EUR: 5.55,
-        YUAN: 0.71
-    }
-}; */
+        USD: 0.19,
+        ARG: 171.63,
+        EUR: 0.18,
+        YUAN: 1.41,
+    },
+}; 
 
 function convertCurrency() {
     const amount = parseFloat(prompt("Ingrese la cantidad a convertir:"));
@@ -41,7 +41,7 @@ function convertCurrency() {
     }
 
     const fromCurrency = prompt("Ingrese la moneda de origen (USD, EUR, ARG, YUAN, REAL):").toUpperCase();
-    const toCurrency = prompt("Ingrese la moneda de destino (USD o EUR o YUAN o REAL):").toUpperCase();
+    const toCurrency = prompt("Ingrese la moneda de destino (USD, EUR, ARG, YUAN, REAL):").toUpperCase();
 
     if (!exchangeRates[fromCurrency] || !exchangeRates[fromCurrency][toCurrency]) {
         console.log("Las tasas de cambio no están definidas para las monedas ingresadas.");
