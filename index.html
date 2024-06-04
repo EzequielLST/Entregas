@@ -3,12 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>js</title>
+    <title>Convertidor de Moneda</title>
     <script src="./App/index.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <H1>Para esta entrega realicé un pequeño conversor de moneda,
-        actualmente las tazas de cambio estan puestas de forma manual pero en proximas entregas
-        idealmente van a poder actualizarse automaticamente </H1>
+    <h1>Convertidor de Moneda</h1>
+    <form id="currency-form">
+        <label for="amount">Cantidad:</label>
+        <input type="number" id="amount" required>
+
+        <label for="fromCurrency">Moneda de Origen:</label>
+        <select id="fromCurrency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="ARG">ARG</option>
+            <option value="YUAN">YUAN</option>
+            <option value="REAL">REAL</option>
+        </select>
+
+        <label for="toCurrency">Moneda de Destino:</label>
+        <select id="toCurrency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="ARG">ARG</option>
+            <option value="YUAN">YUAN</option>
+            <option value="REAL">REAL</option>
+        </select>
+
+        <button type="submit">Convertir</button>
+    </form>
+
+    <h2 id="result"></h2>
 </body>
 </html>

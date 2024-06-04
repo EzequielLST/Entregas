@@ -1,4 +1,3 @@
-
 const exchangeRates = {
     ARG: { 
         EUR: 0.0010,
@@ -7,24 +6,24 @@ const exchangeRates = {
         REAL: 0.0058,
     },
     USD: {
-        EUR: 954.25,
+        EUR: 0.95,
         ARG: 882.70,
         YUAN: 7.81,
         REAL: 5.56,  
     },
     EUR: { 
         USD: 1.18,
-        REAL: 0.18,
-        ARG: 0.0011,
-        YUAN: 0.13,
+        REAL: 5.56,
+        ARG: 882.70,
+        YUAN: 7.69,
     },
     YUAN: { 
-        USD:0.14, 
+        USD: 0.14, 
         EUR: 0.13,
         REAL: 0.71,
         ARG: 122.14,
     },
-    REAL: { //mal 
+    REAL: {
         USD: 0.19,
         ARG: 171.63,
         EUR: 0.18,
@@ -32,32 +31,33 @@ const exchangeRates = {
     },
 }; 
 
+document.getElementById('currency-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    convertCurrency();
+});
+
 function convertCurrency() {
-    const amount = parseFloat(prompt("Ingrese la cantidad a convertir:"));
+    const amount = parseFloat(document.getElementById('amount').value);
     
     if (isNaN(amount)) {
-        console.log("Por favor, ingrese un número válido.");
+        alert("Por favor, ingrese un número válido.");
         return;
     }
 
-    const fromCurrency = prompt("Ingrese la moneda de origen (USD, EUR, ARG, YUAN, REAL):").toUpperCase();
-    const toCurrency = prompt("Ingrese la moneda de destino (USD, EUR, ARG, YUAN, REAL):").toUpperCase();
+    const fromCurrency = document.getElementById('fromCurrency').value;
+    const toCurrency = document.getElementById('toCurrency').value;
 
     if (!exchangeRates[fromCurrency] || !exchangeRates[fromCurrency][toCurrency]) {
-        console.log("Las tasas de cambio no están definidas para las monedas ingresadas.");
+        alert("Las tasas de cambio no están definidas para las monedas ingresadas.");
         return;
     }
     
     const convertedAmount = calculateConversion(amount, fromCurrency, toCurrency);
     
-    console.log(`${amount} ${fromCurrency} = ${convertedAmount.toFixed(2)} ${toCurrency}`);
+    document.getElementById('result').textContent = `${amount} ${fromCurrency} = ${convertedAmount.toFixed(2)} ${toCurrency}`;
 }
-
 
 function calculateConversion(amount, fromCurrency, toCurrency) {
     const rate = exchangeRates[fromCurrency][toCurrency];
     return amount * rate;
 }
-
-
-convertCurrency();
