@@ -34,6 +34,7 @@ const exchangeRates = {
 document.getElementById('currency-form').addEventListener('submit', function(event) {
     event.preventDefault();
     convertCurrency();
+    displayHistory();
 });
 
 function convertCurrency() {
@@ -55,9 +56,38 @@ function convertCurrency() {
     const convertedAmount = calculateConversion(amount, fromCurrency, toCurrency);
     
     document.getElementById('result').textContent = `${amount} ${fromCurrency} = ${convertedAmount.toFixed(2)} ${toCurrency}`;
+    
+    saveToHistory(`${amount} ${fromCurrency} = ${convertedAmount.toFixed(2)} ${toCurrency}`);
 }
 
 function calculateConversion(amount, fromCurrency, toCurrency) {
     const rate = exchangeRates[fromCurrency][toCurrency];
     return amount * rate;
 }
+
+function saveToHistory(conversion) {
+    let history = JSON.parse(localStorage.getItem('conversionHistory')) || [];
+    
+    if (history.length >= 10) {
+        history.shift();  // Elimina el primer elemento si hay 10 o más conversiones
+    }
+    
+    history.push(conversion);
+    localStorage.setItem('conversionHistory', JSON.stringify(history));
+}
+
+function displayHistory() {
+    const historyList = document.getElementById('history-list');
+    historyList.innerHTML = '';
+
+    const history = JSON.parse(localStorage.getItem('conversionHistory')) || [];
+
+    history.forEach(conversion => {
+        const li = document.createElement('li');
+        li.textContent = conversion;
+        historyList.appendChild(li);
+    });
+}
+
+
+document.addEventListener('DOMContentLoaded', displayHistory);
