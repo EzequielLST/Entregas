@@ -38,7 +38,7 @@ function saveToHistory(conversion) {
     let history = JSON.parse(localStorage.getItem('conversionHistory')) || [];
     
     if (history.length >= 10) {
-        history.shift();  // Elimina el primer elemento si hay 10 o más conversiones
+        history.shift();  
     }
     
     history.push(conversion);
@@ -59,4 +59,3 @@ function displayHistory() {
 }
 
 document.addEventListener('DOMContentLoaded', displayHistory);
-

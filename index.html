@@ -8,40 +8,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Convertidor de Moneda</h1>
-    <form id="convertForm">
-        <label for="amount">Cantidad:</label>
-        <input type="number" id="amount" required>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Convertidor de Moneda</h1>
+            <form id="convertForm">
+                <label for="amount">Cantidad:</label>
+                <input type="number" id="amount" required>
 
-        <label for="fromCurrency">Moneda de Origen:</label>
-        <select id="fromCurrency">
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="ARS">ARS</option>
-            <option value="CNY">CNY</option>
-            <option value="BRL">BRL</option>
-            <option value="UYU">UYU</option>
-            <option value="BOB">BOB</option>
-        </select>
+                <label for="fromCurrency">Moneda de Origen:</label>
+                <select id="fromCurrency">
+                    <option value="USD">Dólar estadounidense (USD)</option>
+                    <option value="EUR">Euro (EUR)</option>
+                    <option value="ARS">Peso argentino (ARS)</option>
+                    <option value="CNY">Yuan chino (CNY)</option>
+                    <option value="BRL">Real brasileño (BRL)</option>
+                    <option value="UYU">Peso uruguayo (UYU)</option>
+                    <option value="BOB">Boliviano (BOB)</option>
+                </select>
 
-        <label for="toCurrency">Moneda de Destino:</label>
-        <select id="toCurrency">
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="ARS">ARS</option>
-            <option value="CNY">CNY</option>
-            <option value="BRL">BRL</option>
-            <option value="UYU">UYU</option>
-            <option value="BOB">BOB</option>
-        </select>
+                <label for="toCurrency">Moneda de Destino:</label>
+                <select id="toCurrency">
+                    <option value="USD">Dólar estadounidense (USD)</option>
+                    <option value="EUR">Euro (EUR)</option>
+                    <option value="ARS">Peso argentino (ARS)</option>
+                    <option value="CNY">Yuan chino (CNY)</option>
+                    <option value="BRL">Real brasileño (BRL)</option>
+                    <option value="UYU">Peso uruguayo (UYU)</option>
+                    <option value="BOB">Boliviano (BOB)</option>
+                </select>
 
-        <button type="submit">Convertir</button>
-    </form>
+                <button type="submit">Convertir</button>
+            </form>
 
-    <h2 id="result"></h2>
-    <div id="history">
-        <h3>Historial de Conversiones</h3>
-        <ul id="history-list"></ul>
+            <h2 id="result"></h2>
+            <div id="error"></div>
+        </div>
+        <div class="container">
+            <h3>Historial de Conversiones</h3>
+            <ul id="history-list"></ul>
+        </div>
     </div>
 </body>
 </html>
